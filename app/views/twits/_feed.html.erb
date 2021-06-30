@@ -1,31 +1,31 @@
 <div class="column is-half">
-  <%# if user_signed_in? %>
+  <% if user_signed_in? %>
 	<article class="media box">
 		<figure class="media-left">
 			<p class="image is-64x64">
-				<%#= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+				<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
 			</p>
 		</figure>
 		<div class="media-content">
 			 <%= render 'twits/form' %>
 		</div>
 	</article>
-  <%# end %>
+  <% end %>
 <% @twits.each do | twit | %>
   <div class="box">
   	<article class="media">
   		<div class="media-left">
   			<figure class="image is-64x64">
-  				<%#= gravatar_image_tag(twit.user.email, size: 64, alt: twit.user.name) %>
+  				<%= gravatar_image_tag(twit.user.email, size: 64, alt: twit.user.name) %>
   			</figure>
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%#= twit.user.name %></strong><br />
-  				<small><%#= twit.user.username %></small><br/>
+  				<strong><%= twit.user.name %></strong><br />
+  				<small><%= twit.user.username %></small><br/>
   				<p><%= twit.twit %></p>
   			</div>
-        <%# if user_signed_in? && current_user.id == twit.user_id %>
+        <% if user_signed_in? && current_user.id == twit.user_id %>
   			<nav class="level">
   				<div class="level-left is-mobile">
   					<%= link_to twit, class: "level-item" do %>
@@ -39,7 +39,7 @@
   					<% end %>
   				</div>
   			</nav>
-        <%# end %>
+        <% end %>
   		</div>
   	</article>
   </div>
